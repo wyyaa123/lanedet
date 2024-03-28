@@ -29,7 +29,7 @@ class Runner(object):
         #         self.net, device_ids = range(self.cfg.gpus)).cuda()
         self.net = MMDataParallel(
                 self.net, device_ids = range(self.cfg.gpus)).cuda()
-        self.recorder.logger.info('Network: \n' + str(self.net))
+        # self.recorder.logger.info('Network: \n' + str(self.net)) # no info
         self.resume()
         self.optimizer = build_optimizer(self.cfg, self.net)
         self.scheduler = build_scheduler(self.cfg, self.optimizer)
